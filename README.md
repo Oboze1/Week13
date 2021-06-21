@@ -15,19 +15,35 @@ The files in this repository were used to configure the network depicted below.!
 - Access controls will ensure that only authorized users — namely, ourselves — will be able to connect in the first place.Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file systems of the VMs on the network, as well as watch systems metrics such as CPU usage; attempted SSH logins; sudo escalation failures; etc.
 - _TODO: What does Filebeat watch for? File systems of the VMs
 - _TODO: What does Metricbeat record? system metricsThe configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.| Name    | Function     | IP Address (Internal)| IP Address (External)| Operating System |
+_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.| Name    | Function     | IP Address (Internal)| 
+
+
+
+IP Address (External)| Operating System |
+
 |------------|-------------------|----------------------|----------------------|------------------|
 | Jump Box  | Gateway      |  10.0.0.6     |   20.85.213.179   |  Linux     |
 | Web-1   | Web Server 1   |  10.0.0.4     |           |  Linux     |
 | Web-2   | Web Server 2   |  10.0.0.5     |           |  Linux     |
 | web-3   | Web Server 3   |  10.0.0.7     |           |  Linux     |
+
+
+
 | ELK Server | Monitoring System |  10.1.0.4     |   52.247.117.189  |  Linux     |### Access PoliciesThe machines on the internal network are not exposed to the public Internet. Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 24.245.*.* (My HOME IP)Machines within the network can only be accessed by each othger. The DVWA1, DVWA2 and DVWA3 VMs send traffic to the ELK server.A summary of the access policies in place can be found in the table below.| Name   | Publicly Accessible | Allowed IP Addresses  |
+
+
+
 |----------|---------------------|------------------------|
 | Jump Box |    YES     | 24.245.*.* (My HOME IP)|
 |  ELK  |     NO     |  10.0.0.1-254     |
 | DVWA 1 |     NO     |  10.0.0.1-254     |
 | DVWA 2 |     NO     |  10.0.0.1-254     |
-| DVWA 3 |     NO     |  10.0.0.1-254     |### Elk ConfigurationAnsible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
+| DVWA 3 |     NO     |  10.0.0.1-254     |
+
+
+
+
+### Elk ConfigurationAnsible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - selects machines to execute against from inventory
 - connects to those machines (or network devices, or other managed nodes), usually over SSH
 - copies one or more modules to the remote machines and starts execution thereThe playbook implements the following tasks:
